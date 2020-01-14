@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <cmath>
 #include <stdio.h>
@@ -22,7 +23,7 @@ int main()
 
 float my_ln(float x)
 {
-	const float eps = 1e-6;
+	const float eps = 1e-6f;
     float ans = 1;
     float sum = -1;
 	int k = 0;

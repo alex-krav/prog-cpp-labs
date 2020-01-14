@@ -42,7 +42,7 @@ int** init_arr(int& size)
     {
         for (int j = 0; j < size; j++)
         {
-            arr[i][j] = rand() % 9;
+            arr[i][j] = rand() % 10;
         }
     }
 

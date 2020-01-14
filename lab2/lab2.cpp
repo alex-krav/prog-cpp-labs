@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,7 +33,7 @@ int calc_sum(char str[])
 	p = strtok(str, delimeter);
 	while (p != NULL)
 	{
-		int current = stoi(p);
+		int current = atoi(p);
 		sum += current;
 		p = strtok(NULL, delimeter);
 	}
