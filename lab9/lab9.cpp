@@ -1,46 +1,46 @@
 #include <iostream>
 #include <stdlib.h>
+#include <limits.h>
 
 using namespace std;
 
-int** init_arr(int&, int&);
-void print_arr(int**, int, int);
-int** draw_diagonals(int**, int, int);
+int** init_arr(int&);
+void print_arr(int**, int);
+int** draw_diagonals(int**, int);
 
 int main()
 {
     int** in_arr; 
     int** out_arr;
-    int C, R;
+    int N;
     
-    in_arr = init_arr(C, R);
+    in_arr = init_arr(N);
     cout << "Your array:" << endl;
-    print_arr(in_arr, C, R);
+    print_arr(in_arr, N);
 
-    out_arr = draw_diagonals(in_arr, C, R);
+    out_arr = draw_diagonals(in_arr, N);
     cout << "Array after changes:" << endl;
-    print_arr(out_arr, C, R);
+    print_arr(out_arr, N);
 
     system("pause");
     return 0;
 }
 
-int** init_arr(int& columns, int& rows) 
+int** init_arr(int& size) 
 {
-    cout << "Rows = "; cin >> columns;
-    cout << "Columns = ";  cin >> rows;
-    int** arr = new int* [rows];
+    cout << "Rows/Columns = "; cin >> size;
+    int** arr = new int* [size];
 
     // init array
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < size; i++)
     {
-        arr[i] = new int[columns];
+        arr[i] = new int[size];
     }
 
     // fill with generated values
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < size; j++)
         {
             arr[i][j] = rand() % 9;
         }
@@ -49,11 +49,11 @@ int** init_arr(int& columns, int& rows)
     return arr;
 }
 
-void print_arr(int** arr, int colums, int rows)
+void print_arr(int** arr, int size)
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < size; i++)
     {
-        for (int j = 0; j < colums; j++)
+        for (int j = 0; j < size; j++)
         {
             cout << arr[i][j] << " ";
         }
@@ -61,7 +61,7 @@ void print_arr(int** arr, int colums, int rows)
     }
 }
 
-int** draw_diagonals(int** arr, int columns, int rows) {
+int** draw_diagonals(int** arr, int size) {
 
     int n, m;
     cout << "Set element [row][column]" << endl;
@@ -71,16 +71,16 @@ int** draw_diagonals(int** arr, int columns, int rows) {
     int max = INT_MIN;
 
     // init new array
-    int** new_arr = new int* [rows];
-    for (int i = 0; i < rows; i++)
+    int** new_arr = new int* [size];
+    for (int i = 0; i < size; i++)
     {
-        new_arr[i] = new int[columns];
+        new_arr[i] = new int[size];
     }
 
     // find max element
-    for (int i = n; i < rows; i++)
+    for (int i = n; i < size; i++)
     {
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < size; j++)
         {
             if (j >= l && j <= r)
             {
@@ -95,11 +95,11 @@ int** draw_diagonals(int** arr, int columns, int rows) {
 
     // fill new array with zeros and max 
     l = m, r = m;
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < size; i++)
     {
         if (i >= n)
         {
-            for (int j = 0; j < columns; j++)
+            for (int j = 0; j < size; j++)
             {
                 if (j >= l && j <= r)
                 {
@@ -114,7 +114,7 @@ int** draw_diagonals(int** arr, int columns, int rows) {
         }
         else
         {
-            for (int j = 0; j < columns; j++)
+            for (int j = 0; j < size; j++)
             {
                 new_arr[i][j] = 0;
             }

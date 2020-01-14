@@ -34,7 +34,7 @@ float* init_arr(int& size)
     
     for (int i = 0; i < size; i++)
     {
-        arr[i] = -FLT_MIN + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (FLT_MAX - (-FLT_MIN))));
+        arr[i] = -FLT_MAX/2 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (FLT_MAX/2 - (-FLT_MAX/2))));
     }
     
     return arr;
@@ -50,9 +50,10 @@ void print_arr(float* arr, int size)
 
 float* min_max_difference(float* arr, int size)
 {
-    float diff, min = FLT_MAX, max = FLT_MIN;
+    float diff, min, max;
+    min = max = abs(arr[0] - arr[1]);
 
-    for (int i = 0; i < size - 1; i++)
+    for (int i = 1; i < size - 1; i++)
     {
         diff = abs(arr[i] - arr[i + 1]);
         if (min > diff)

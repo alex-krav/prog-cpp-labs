@@ -36,7 +36,7 @@ float* calc_squares(int size)
 	for (int i = 0; i < size; i++)
 	{
 		printf("Enter side lengths for triangle %d (<space> separated):\n", i);
-		scanf_s("%f %f %f", &a, &b, &c);
+		scanf("%f %f %f", &a, &b, &c);
 		if (!triangle_sides_correct(a, b, c))
 		{
 			printf("Side lengths are incorrect\n");

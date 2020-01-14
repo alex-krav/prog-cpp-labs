@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cmath>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int main()
 	double sum = 0;
 
 	printf("enter natural number: ");
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 
 	for (int k = 1; k <= n; k++)
 	{

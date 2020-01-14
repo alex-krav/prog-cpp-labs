@@ -12,10 +12,10 @@ int main()
 	float brick_a, brick_b, brick_c;
 
 	printf("enter hole dimensions (<space> separated):\n");
-	scanf_s("%f %f", &hole_x, &hole_y);
+	scanf("%f %f", &hole_x, &hole_y);
 
 	printf("enter brick dimensions (<space> separated):\n");
-	scanf_s("%f %f %f", &brick_a, &brick_b, &brick_c);
+	scanf("%f %f %f", &brick_a, &brick_b, &brick_c);
 
 	if (sides_fit_hole(brick_a, brick_b, hole_x, hole_y)
 		|| sides_fit_hole(brick_b, brick_c, hole_x, hole_y)

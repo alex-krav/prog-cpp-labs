@@ -11,7 +11,7 @@ int main()
 {
 	float arg;
 	printf("enter 0 <= x <= 2: ");
-	scanf_s("%f", &arg);
+	scanf("%f", &arg);
 
 	printf("my_ln %f is %f\n", arg, my_ln(arg));
 	printf("ln %f is %f\n", arg, log(arg));

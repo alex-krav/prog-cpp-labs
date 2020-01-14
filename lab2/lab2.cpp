@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <string>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +13,7 @@ int main()
 	char str[100];
 
 	puts("enter numbers separated with space(s):");
-	gets_s(str);
+	cin.get(str, 100);
 
 	sum = calc_sum(str);
 	printf("Sum is %d\n", sum);
@@ -27,15 +27,14 @@ int calc_sum(char str[])
 	char SPACE = ' ';
 	char* delimeter = &SPACE;
 	char* p;
-	char* np = NULL;
 	int sum = 0;
 
-	p = strtok_s(str, delimeter, &np);
+	p = strtok(str, delimeter);
 	while (p != NULL)
 	{
-		int current = _strtoi64(p, NULL, 10);
+		int current = stoi(p);
 		sum += current;
-		p = strtok_s(NULL, delimeter, &np);
+		p = strtok(NULL, delimeter);
 	}
 
 	return sum;
