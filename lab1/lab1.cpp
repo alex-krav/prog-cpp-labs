@@ -15,6 +15,6 @@ int main()
 	printf("square in is %d times smaller than square out\n", cn);
 	printf("square in = %.2f\n", s_in);
 
-        system("pause");
+    system("pause");
 	return 0;
 }
